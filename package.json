@@ -1,0 +1,37 @@
+{
+  "name": "construx-star",
+  "version": "0.0.1",
+  "description": "star compiler plugin for construx",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js",
+    "cover": "nyc npm test && nyc report",
+    "lint": "jshint -c .jshintrc index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krakenjs/construx-star.git"
+  },
+  "keywords": [
+    "krakenjs",
+    "kraken-js",
+    "construx",
+    "less"
+  ],
+  "author": "star",
+  "license": [
+    {
+      "type": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/krakenjs/construx-star/issues"
+  },
+  "homepage": "https://github.com/krakenjs/construx-star#readme",
+  "devDependencies": {
+    "jshint": "~2.4.3",
+    "nyc": "^2.3.0",
+    "tap": "^1.2.1"
+  }
+}
