@@ -18,6 +18,7 @@ This repository is meant as a template for `construx` plugins. If you wish to us
 If you want the krakenjs team to promote your plugin:
 * edit this `README` to reflect your plugin's requirements, configuration, and purpose
 * write unit tests which sufficiently exercise the most likely encountered use cases
+* publish your plugin to npm
 * Inform us by filing an issue [here](https://github.com/krakenjs/construx/issues), to add your plugin to the list of `construx` plugins
 * The team will process your request as quickly as possible
 
