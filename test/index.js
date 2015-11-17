@@ -19,14 +19,13 @@
 
 'use strict';
 
-
 var test = require('tap').test,
-  path = require('path'),
-  Star = require(path.resolve(__dirname, '..')),
-  star = Star({}),
-  fs = require('fs');
+    path = require('path'),
+    Star = require(path.resolve(__dirname, '..')),
+    star = Star({}),
+    fs = require('fs');
 
-test('construx-less', function (t) {
+test('construx-star', function (t) {
 
     t.test('processes a good star file', function (t) {
         t.plan(1);
@@ -41,6 +40,7 @@ test('construx-less', function (t) {
 
     });
 
+
     t.test('processes a bad star file', function (t) {
         t.plan(1);
         //get bad star file
@@ -49,9 +49,8 @@ test('construx-less', function (t) {
                 t.ok(err.name === 'Error');
                 t.end();
             });
-
         });
-
     });
 
+    t.end()
 });
