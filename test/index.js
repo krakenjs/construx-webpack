@@ -31,7 +31,7 @@ test('construx-star', function (t) {
         t.plan(1);
         //get good star file
         fs.readFile(path.resolve(__dirname, 'star/good.star'), function (err, data) {
-            star(data, {paths: '', context: {name: 'star.compiled'}}, function (err, compiled) {
+            star(data, {paths: '', context: {name: 'good.star.compiled'}}, function (err, compiled) {
                 t.equal('star', compiled);
                 t.end();
             });
@@ -45,7 +45,7 @@ test('construx-star', function (t) {
         t.plan(1);
         //get bad star file
         fs.readFile(path.resolve(__dirname, 'star/bad.star'), function (err, data) {
-            star(data, {paths: '', context: {name: 'star.compiled'}}, function (err, compiled) {
+            star(data, {paths: '', context: {name: 'bad.star.compiled'}}, function (err, compiled) {
                 t.ok(err.name === 'Error');
                 t.end();
             });

@@ -20,13 +20,20 @@
 
 module.exports = function (options) {
 
-    options.ext = options.ext || 'less';
+    options.ext = options.ext || 'star';
     options.dumpLineNumbers = 'comments';
 
-    return function (data, args, callback) {
-        var star = data.toString('utf8');
-        var paths = args.paths;
-        var name = args.context.name;
+    /**
+     * Middleware that will process the request.
+     * See https://github.com/krakenjs/construx#middleware-process-a-matched-request
+     * @param raw: Raw content of the resource matched by Construx.
+     * @param config: Configuration object provided through Construx initialization (Usually found in Kraken's config files)
+     * @returns function (err, result): A callback that will take the compiled file.
+     */
+    return function compiler(raw, config, callback) {
+        var star = raw.toString('utf8');
+        var paths = config.paths;
+        var name = config.context.name;
 
         if (star === 'good') {
             callback(null, 'star');
