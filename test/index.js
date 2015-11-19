@@ -19,20 +19,19 @@
 
 'use strict';
 
-
 var test = require('tap').test,
-  path = require('path'),
-  Star = require(path.resolve(__dirname, '..')),
-  star = Star({}),
-  fs = require('fs');
+    path = require('path'),
+    Star = require(path.resolve(__dirname, '..')),
+    star = Star({}),
+    fs = require('fs');
 
-test('construx-less', function (t) {
+test('construx-star', function (t) {
 
     t.test('processes a good star file', function (t) {
         t.plan(1);
         //get good star file
         fs.readFile(path.resolve(__dirname, 'star/good.star'), function (err, data) {
-            star(data, {paths: '', context: {name: 'star.compiled'}}, function (err, compiled) {
+            star(data, {paths: '', context: {name: 'good.star.compiled'}}, function (err, compiled) {
                 t.equal('star', compiled);
                 t.end();
             });
@@ -41,17 +40,17 @@ test('construx-less', function (t) {
 
     });
 
+
     t.test('processes a bad star file', function (t) {
         t.plan(1);
         //get bad star file
         fs.readFile(path.resolve(__dirname, 'star/bad.star'), function (err, data) {
-            star(data, {paths: '', context: {name: 'star.compiled'}}, function (err, compiled) {
+            star(data, {paths: '', context: {name: 'bad.star.compiled'}}, function (err, compiled) {
                 t.ok(err.name === 'Error');
                 t.end();
             });
-
         });
-
     });
 
+    t.end()
 });
