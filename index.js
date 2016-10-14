@@ -18,29 +18,41 @@
 'use strict';
 
 
+//'use strict';
+//
+var webpack = require('webpack');
+var webpackbundler = require('webpack-dev-middleware').direct;
+
+
+var path = require('path');
+var b;
+
 module.exports = function (options) {
+    var config = require(options.config.webpack);
+    b = b || webpackbundler(webpack(config), options.config.bundler || {});
 
-    options.ext = options.ext || 'star';
-    options.dumpLineNumbers = 'comments';
-
+    options.precompile = function (options, cb) {
+        options.skipRead = true;
+        cb(null, options);
+    };
     /**
      * Middleware that will process the request.
      * See https://github.com/krakenjs/construx#middleware-process-a-matched-request
-     * @param raw: Raw content of the resource matched by Construx.
+     * @param raw: Not used for this plugin...
      * @param config: Configuration object provided through Construx initialization (Usually found in Kraken's config files)
      * @returns function (err, result): A callback that will take the compiled file.
      */
     return function compiler(raw, config, callback) {
-        var star = raw.toString('utf8');
-        var paths = config.paths;
-        var name = config.context.name;
+        var ctx = config.context;
+        var src = path.join(ctx.destRoot, ctx.filePath);
 
-        if (star === 'good') {
-            callback(null, 'star');
-        } else {
-            callback(new Error('Bad star file'));
-        }
+        b({src: src}, function (err, content) {
+            if (err) {
+                callback(err);
+                return;
+            }
+            callback(null, content);
+        });
 
     };
-
 };

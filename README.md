@@ -1,11 +1,11 @@
-# construx-star
+# construx-webpack
 
-Lead Maintainer: [star](star)
+Lead Maintainer: [Matt Edelman](https://github.com/grawk)
 
-[![Build Status](https://travis-ci.org/krakenjs/construx-star.svg?branch=master)](https://travis-ci.org/krakenjs/construx-star)
-[![NPM version](https://badge.fury.io/js/construx-star.png)](http://badge.fury.io/js/construx-star)
+[![Build Status](https://travis-ci.org/krakenjs/construx-webpack.svg?branch=master)](https://travis-ci.org/krakenjs/construx-webpack)
+[![NPM version](https://badge.fury.io/js/construx-webpack.png)](http://badge.fury.io/js/construx-webpack)
 
-[construx](https://github.com/krakenjs/construx) plugin for JIT-compiling star resources during development of [express](http://expressjs.com/) applications.
+[construx](https://github.com/krakenjs/construx) plugin for JIT-compiling webpack resources during development of [express](http://expressjs.com/) applications.
 
 ## REMOVE THIS SECTION
 
@@ -31,7 +31,7 @@ This plugin requires your project to have `<whatever module>@<whatever semver>`.
 ### Install
 
 ```shell
-$ npm install --save-dev construx-star
+$ npm install --save-dev construx-webpack
 ```
 
 ### Configure
@@ -39,12 +39,16 @@ $ npm install --save-dev construx-star
 Where you configure your construx plugins:
 
 ```json
-{
-    "star": {
-        "module": "construx-star",
-        "files": "/star/**/*.compiled",
-    }
-}
+"webpack": {
+    "module": "path:./lib/construx-webpack",
+    "config": {
+        "webpack": "path:./webpack.config",
+        "bundler": {
+            "noInfo": false
+        }
+    },
+    "files": "/js/apps/*.js"
+},
 ```
 
 _Note: See [construx README](https://github.com/krakenjs/construx/blob/master/README.md) for general usage of construx_

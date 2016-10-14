@@ -1,7 +1,7 @@
 {
-  "name": "construx-star",
+  "name": "construx-webpack",
   "version": "0.0.1",
-  "description": "star compiler plugin for construx",
+  "description": "webpack compiler plugin for construx",
   "main": "index.js",
   "scripts": {
     "test": "tap test/*.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krakenjs/construx-star.git"
+    "url": "git+https://github.com/krakenjs/construx-webpack.git"
   },
   "keywords": [
     "krakenjs",
@@ -18,7 +18,7 @@
     "construx",
     "less"
   ],
-  "author": "star",
+  "author": "Matt Edelman <medelman@paypal.com>",
   "license": [
     {
       "type": "Apache 2.0",
@@ -26,12 +26,16 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/krakenjs/construx-star/issues"
+    "url": "https://github.com/krakenjs/construx-webpack/issues"
   },
-  "homepage": "https://github.com/krakenjs/construx-star#readme",
+  "homepage": "https://github.com/krakenjs/construx-webpack#readme",
   "devDependencies": {
     "jshint": "~2.4.3",
     "nyc": "^2.3.0",
     "tap": "^1.2.1"
+  },
+  "dependencies": {
+    "webpack": "^1.13.2",
+    "webpack-dev-middleware": "git+https://github.com/grawk/webpack-dev-middleware.git#feature.new.api"
   }
 }
